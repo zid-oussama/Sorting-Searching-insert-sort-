@@ -1,0 +1,31 @@
+PROCEDURE switch(i:INTEGER , VAR arr:ARRAY_OF INTEGER [50])
+VAR
+    stc:INTEGER;
+BEGIN
+    stc=arr[i-1];
+    arr[i-1]=arr[i];
+    arr[i]=stc;
+END
+
+
+
+ALGORITHM Insertion
+VAR
+    k,i:INTEGER;
+    
+BEGIN
+    FOR i FROM 1 TO arr.length-1 STEP 1  DO
+        k:=i;
+        WHILE (k>0) DO
+            IF (arr[k-1]>arr[k]){
+                switch(k,arr);
+                k:=k-1;
+            }
+            ELSE {
+                break;
+            }
+            END_IF
+        END_WHILE
+    END_FOR
+    Write(arr)
+END
